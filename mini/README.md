@@ -1,0 +1,1 @@
+Mini projects to make me familiar with syntax and usage.
