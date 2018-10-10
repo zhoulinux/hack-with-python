@@ -12,4 +12,7 @@ A simple rock, scissors and paper game. You can only play with the computer.
 The program randomly choose 4 colors from 6. The player has at most 6 times to guess the right order of the 4 colors. Believe it or not, it's hard to guess corretly. You can do better than me.
 [Master Mind Color Python Script](./master_mind_color.py)
 
+## 4. Hangman
+The program randomly generate a word. The player guess the secret word. If the player guess the word, the player wins. Or, the player becomes a hangman step by step. There are 6 chances to use and use up 1 chance only if the player missed.
+
 
