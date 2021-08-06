@@ -14,6 +14,8 @@ With hard work, I found some pieces to start. And I decides to record all the st
 
 So, this is the repository.
 
+*By the way, I make these things on Mac, not testing on other OS.*
+
 # [Mini Projects](mini/)
 
 Aim to be familiar with Python, especially the syntax and usage.
