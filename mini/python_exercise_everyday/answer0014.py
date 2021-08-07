@@ -7,29 +7,29 @@
 	"2":["李四",90,99,95],
 	"3":["王五",60,66,68]
 }
+请将上述内容写到 student.xlsx 文件中.
 """
 
 
-import xlwt
+import xlwt, re
 
 
-students = {
-	"1":["张三",150,120,100],
-	"2":["李四",90,99,95],
-	"3":["王五",60,66,68]
-}
+students = []
+with open('student.txt') as f:
+    for line in f:
+        line = line.strip('{}').strip()
+        if line:
+            students.append(re.findall(r'[\w\d]+', line))
 
 wb = xlwt.Workbook()
-ws = wb.add_sheet('students')
+ws = wb.add_sheet('student')
 
 row = 0
-for key, values in students.items():
+for student in students:
     col = 0
-    ws.write(row, col, key)
-    col += 1
-    for value in values:
+    for value in student:
         ws.write(row, col, value)
         col += 1
     row += 1
             
-wb.save('students.xlsx')
+wb.save('student.xlsx')
