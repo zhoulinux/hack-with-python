@@ -11,25 +11,18 @@
 """
 
 
-import xlwt, re
+import json, xlwt
 
 
-citys = []
-with open('city.txt') as f:
-    for line in f:
-        line = line.strip('{}').strip()
-        if line:
-            citys.append(re.findall(r'[\w\d]+', line))
+city = {}
+with open('./city.txt') as f:
+    city = json.loads(f.read())
 
 wb = xlwt.Workbook()
 ws = wb.add_sheet('city')
 
-row = 0
-for city in citys:
-    col = 0
-    for value in city:
-        ws.write(row, col, value)
-        col += 1
-    row += 1
+for i, (key, value) in enumerate(city.items()):
+    ws.write(i, 0, key)
+    ws.write(i, 1, value)
             
-wb.save('city.xlsx')
+wb.save('./city.xls')
