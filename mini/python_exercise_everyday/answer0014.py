@@ -7,29 +7,31 @@
 	"2":["李四",90,99,95],
 	"3":["王五",60,66,68]
 }
-请将上述内容写到 student.xlsx 文件中.
+请将上述内容写到 student.xls 文件中.
+
+xlwt is a library for developers to use to generate spreadsheet files compatible with Microsoft Excel versions 95 to 2003.
+
+openpyxl is a Python library to read/write Excel 2010 xlsx/xlsm/xltx/xltm files.
 """
 
 
-import xlwt, re
+import json, xlwt
 
 
-students = []
-with open('student.txt') as f:
-    for line in f:
-        line = line.strip('{}').strip()
-        if line:
-            students.append(re.findall(r'[\w\d]+', line))
+student = {}
+with open('./student.txt') as f:
+    student = json.loads(f.read())
 
 wb = xlwt.Workbook()
 ws = wb.add_sheet('student')
 
 row = 0
-for student in students:
+for key, values in student.items():
     col = 0
-    for value in student:
-        ws.write(row, col, value)
+    ws.write(row, col, key)
+    for value in values:
         col += 1
+        ws.write(row, col, value)
     row += 1
-            
-wb.save('student.xlsx')
+
+wb.save('student.xls')
