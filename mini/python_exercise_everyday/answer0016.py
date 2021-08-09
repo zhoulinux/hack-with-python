@@ -19,7 +19,7 @@ with open('./numbers.txt') as f:
     numbers = json.loads(f.read())
 
 wb = xlwt.Workbook()
-ws = wb.add_sheet('number')
+ws = wb.add_sheet('numbers')
 
 for i, number in enumerate(numbers):
     col = 0
