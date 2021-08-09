@@ -25,13 +25,11 @@ with open('./student.txt') as f:
 wb = xlwt.Workbook()
 ws = wb.add_sheet('student')
 
-row = 0
-for key, values in student.items():
+for i, (key, values) in enumerate(student.items()):
     col = 0
-    ws.write(row, col, key)
+    ws.write(i, col, key)
     for value in values:
         col += 1
-        ws.write(row, col, value)
-    row += 1
+        ws.write(i, col, value)
 
 wb.save('student.xls')
