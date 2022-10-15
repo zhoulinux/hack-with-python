@@ -6,21 +6,25 @@ http://www.pythonchallenge.com/pc/def/peak.html
 <peakhell src="banner.p"/>
 
 <!-- peak hell sounds familiar ? -->
-peakhell, peakhell, ..., sounds like pickle, which is Python's object serialization module.
+peakhell, peakhell, ..., sounds like pickle,
+which is Python's object serialization module.
 """
 
 
-import requests, pickle
+import requests
+import pickle
 
 
 page = requests.get('http://www.pythonchallenge.com/pc/def/banner.p')
-p = pickle.loads(page.content) 
+p = pickle.loads(page.content)
+print(p)
 
 # p is a list of lists of tuple, which includes a character and a number.
 with open('./answer5.txt', 'w') as f:
-    for l in p:
-        for t in l:
-            f.write(t[0] * t[1])
+    for li in p:
+        for tu in li:
+            f.write(tu[0] * tu[1])
         f.write('\n')
-        
+
 # we get channel, so change to channel.html.
+# http://www.pythonchallenge.com/pc/def/channel.html

@@ -5,10 +5,17 @@ http://www.pythonchallenge.com/pc/def/equality.html
 """
 
 
-import re, requests
+import requests
+import re
 
 
 page = requests.get('http://www.pythonchallenge.com/pc/def/equality.html')
-comments = re.findall(r'[^A-Z]+[A-Z]{3}([a-z])[A-Z]{3}[^A-Z]+', page.content.decode())
+comments = re.findall(
+    r'[^A-Z]+[A-Z]{3}([a-z])[A-Z]{3}[^A-Z]+',
+    page.content.decode()
+)
 print(''.join(comments))
-# change equality.html to linkedlist.html, then change linkedlist.html to linkedlist.php
+# change equality.html to linkedlist.html,
+# http://www.pythonchallenge.com/pc/def/linkedlist.html
+# then change linkedlist.html to linkedlist.php
+# http://www.pythonchallenge.com/pc/def/linkedlist.php
